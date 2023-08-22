@@ -14,6 +14,7 @@ class Queue:
 
     def enqueue(self, data):
         new_node = Node(data)
+        # print(data)
         if self.rear is None:
             self.head = new_node
             self.rear = new_node
@@ -27,6 +28,8 @@ class Queue:
         else:
             temp = self.head
             self.head = self.head.next
+            if self.head is None:
+                self.rear = None
             return temp.data
 
     def swap(self, index1, index2):
@@ -75,25 +78,28 @@ class Queue:
         cur = self.head
         data = ""
         while cur:
-            data += str(cur.data)+ "->"
+            data += str(cur.data)+ " -> "
             cur = cur.next 
         print(data)
 
 queue = Queue() 
-while (1):
+while True:
+    print("\n")
     queue.print_list()
     print("\n\n1. Enqueue")
     print("2. Dequeue")
     print("3. Swap")
     print("4. Exit")
-    print("================================")
-    print(" ")
     pilih = int(input("Masukkan pilihan: "))
     if pilih == 1:
         data = input("Masukkan data: ")
         queue.enqueue(data)
     elif pilih == 2:
-        queue.dequeue()
+        try:
+            dequeued_data = queue.dequeue()
+            print("\nData yang dihapus:", dequeued_data) 
+        except Exception as i:
+            print(i)
     elif pilih == 3:
         index1 = int(input("Masukkan index pertama: "))
         index2 = int(input("Masukkan index kedua: "))
@@ -102,20 +108,3 @@ while (1):
         break
     else:
         print("Pilihan salah")
-
-# queue.enqueue(10)
-# queue.enqueue(20)
-# queue.enqueue(30)
-# queue.enqueue(40)
-
-# queue.push(50)
-
-# queue.print_list()
-
-# print("================================")
-
-queue.pop()
-
-# queue.swap(3,1)
-
-queue.print_list()
