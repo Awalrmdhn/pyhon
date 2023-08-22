@@ -24,9 +24,6 @@ class DoublyLinkedList:
             new_node.prev = cur
 
     def prepend(self, data):
-        """
-        Prepends a new node with the given data to the beginning of the doubly linked list.
-        """
         new_node = Node(data)
         if self.head is None:
             self.head = new_node
@@ -36,9 +33,6 @@ class DoublyLinkedList:
             self.head = new_node
 
     def print_list(self):
-        """
-        Prints the data of each node in the doubly linked list.
-        """
         cur = self.head
         while cur:
             print(cur.data)

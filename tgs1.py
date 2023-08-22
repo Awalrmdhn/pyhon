@@ -3,7 +3,7 @@ class node:
         self._isi = isi
         self._next = None
         
-class L:
+class LL:
     def __init__(self):
         self._head = None
         
